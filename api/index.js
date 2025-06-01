@@ -1,17 +1,14 @@
-// api/index.js
 const express = require('express');
 const app = express();
+
+const personajes = require('./personajes');
 
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.json({ mensaje: 'Hola desde Node.js en Vercel 🚀' });
+  res.json({ mensaje: 'Backend Dragon Ball API en Vercel 🔥' });
 });
 
-app.post('/saludo', (req, res) => {
-  const { nombre } = req.body;
-  res.json({ saludo: `Hola, ${nombre || 'anónimo'}!` });
-});
+app.use('/', personajes); // ✅ Montamos el endpoint
 
-// Exporta como handler para Vercel
 module.exports = app;
